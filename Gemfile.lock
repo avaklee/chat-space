@@ -63,6 +63,8 @@ GEM
       html2haml
     erubis (2.7.0)
     execjs (2.7.0)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     haml (5.0.1)
@@ -186,6 +188,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   devise
   erb2haml
+  font-awesome-sass
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails

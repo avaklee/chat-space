@@ -45,22 +45,22 @@
             width: 300px;
             padding: 46px 0 40px 0;
 
-            &__user_name_in_use{
+            &__user_name{
               font-size: 16px;
-              color: #434A54;
+              color: $gray_black;
               font-weight: bold;
               float: left;
             }
             &__date{
               font-size: 12px;
-              color: #999999;
+              color: $light_gray;
               float: left;
               margin-left: 5px;
             }
             &__comment{
               margin-top: 10px;
               font-size: 14px;
-              color: #434A54;
+              color: $gray_black;
               clear: both;
             }
           }
@@ -85,7 +85,7 @@
             line-height: 50px;
             font-size: 16px;
             color: $gray_black;
-            background-color: white;
+            background-color: $white;
             margin: 20px 10px;
             float:left;
           }

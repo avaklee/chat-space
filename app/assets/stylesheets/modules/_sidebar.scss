@@ -1,0 +1,41 @@
+ .left_content{
+        width: 300px;
+        height: 100px;
+        float: left;
+        &__user_nav{
+          height: 105px;
+          background-color: $dark_navy;
+          padding-left: 20px;
+
+          &__user_name{
+            font-size: 16px;
+            color: $white;
+            font-weight: bold;
+            line-height: 90px;
+            float: left;
+          }
+          .fa{
+            float: right;
+            line-height: 90px;
+            margin-right: 20px;
+            color: $white;
+          }
+        }
+        &__chat_groups{
+          padding-top:20px;
+          background-color: $navy;
+          height: calc(100vh - 90px);
+          padding-left: 20px;
+          &__chat_group_name{
+            font-size: 15px;
+            color: $white;
+            padding-bottom: 5px;
+            padding-top: 40px;
+          }
+          &__last_msg{
+            font-size: 11px;
+            color: $white;
+            padding-bottom: 40px;
+          }
+        }
+      }

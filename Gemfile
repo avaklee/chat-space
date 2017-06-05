@@ -26,7 +26,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
 gem 'font-awesome-sass', '~> 4.7.0'
-
+gem 'devise'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password

@@ -2,14 +2,19 @@ class GroupsController < ApplicationController
 
   def index
     @groups = Group.all
-  end 
+  end
 
   def new
     @group = Group.new
   end
 
   def create
-    Group.create(name: group_params[:name], user_ids:[])
+    @group = Group.new(group_params)
+    if @group.save
+      redirect_to @group, notice: "グループ登録しました。"
+    else
+      render 'new'
+    end
   end
 
   def edit

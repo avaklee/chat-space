@@ -9,6 +9,7 @@ class GroupsController < ApplicationController
   end
 
   def create
+    Group.create(name: group_params[:name], user_ids:[])
   end
 
   def edit

@@ -11,7 +11,8 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to @group, notice: "グループ登録しました。"
+      redirect_to action: :index
+      flash[:notice] = "グループ登録しました。"
     else
       render 'new'
     end

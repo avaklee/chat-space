@@ -28,6 +28,7 @@ gem 'erb2haml'
 gem 'font-awesome-sass', '~> 4.7.0'
 gem 'devise'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'pry-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

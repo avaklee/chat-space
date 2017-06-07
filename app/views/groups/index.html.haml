@@ -7,8 +7,8 @@
         .fa.fa-pencil-square-o{"aria-hidden" => "true"}
       .left_content__chat_groups
         .left_content__chat_groups__chat_group_name
-        / - current_user.groups.each do |group|
-        / = group.name
+        - current_user.groups.each do |group|
+          "#{group.name}"
         .left_content__chat_groups__last_msg　まだメッセージはありません。
     .right_content
       .right_content__top_content

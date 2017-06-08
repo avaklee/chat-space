@@ -1,0 +1,48 @@
+.wrapper
+  .contents.clearfix
+    .left_content
+      .left_content__user_nav
+        .left_content__user_nav__user_name K Lee
+        .fa.fa-cog{"aria-hidden" => "true"}
+        .fa.fa-pencil-square-o{"aria-hidden" => "true"}
+      .left_content__chat_groups
+        .left_content__chat_groups__chat_group_name
+        - current_user.groups.each do |group|
+          .left_content__chat_groups__chat_group_name
+            "#{group.name}"
+            .left_content__chat_groups__last_msg
+              - if group.messages.present?
+                = group.messages.last.body
+              -else
+                "まだメッセージはありません。"
+    .right_content
+      .right_content__top_content
+        .right_content__top_content__chat_group_name_main
+          = @group.name
+        .right_content__top_content__edit_button EDIT
+        .right_content__top_content__members
+          -@group.users.each do |f|
+            "Members: #{f.name}"
+      .right_content__middle_content
+        - if @messages.present?
+          - @messages.each do |msg|
+            .right_content__middle_content__message
+              .right_content__middle_content__message__user_name
+                = msg.user.name
+              .right_content__middle_content__message__date
+                = msg.created_at
+              .right_content__middle_content__message__comment
+                = msg.body
+
+      = form_for @message, :url => {:action => :create} do |f|
+        .right_content__bottom_content
+          = f.label :image do
+            .i.fa.fa-picture-o{"aria-hidden" => "true"}
+              = f.file_field :image
+          = f.text_field :body, placeholder: "メッセージを入力してください。"
+          = f.submit "SEND", id: "sent_button", data: { disable_with: "Save" }
+
+
+
+
+

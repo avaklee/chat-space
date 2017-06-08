@@ -1,21 +1,28 @@
 class MessagesController < ApplicationController
+before_action :grouping
 
-  def new
+  def index
+    @message = Message.new
+    @messages = Group.find(params[:group_id]).messages
   end
 
   def create
-    @message = Message.new(message_params)
+    @message = Message.create(body: message_params[:body], image:message_params[:image], group_id: params[:group_id], user_id: current_user.id)
     if @message.save
-      redirect_to root_path
+      redirect_to group_messages_path
     else
       flash[:alert] = "メッセージを入力してください。"
-      render :new
+      render :index
     end
   end
 
 private
   def message_params
     params.require(:message).permit(:body, :image)
+  end
+
+  def grouping
+    @group = Group.find(params[:group_id])
   end
 
 end

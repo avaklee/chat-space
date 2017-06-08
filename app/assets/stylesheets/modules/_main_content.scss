@@ -43,7 +43,7 @@
           padding: 0 40px;
           &__message{
             width: 300px;
-            padding: 46px 0 40px 0;
+            padding: 46px 0 0 0;
 
             &__user_name{
               font-size: 16px;
@@ -65,12 +65,13 @@
             }
           }
         }
-        &__bottom_content{
+        .new_message{
           height: 90px;
           background-color: $dark_gray;
+          position: fixed;
 
 
-          &__sent_button{
+          #sent_button{
             height: 50px;
             width: 80px;
             text-align: center;
@@ -79,7 +80,7 @@
             float: right;
             margin: 20px 40px 20px 15px;
           }
-          &__text_bar{
+          #message_body{
             height: 50px;
             width: calc(100vw - 505px);
             line-height: 50px;
@@ -91,6 +92,9 @@
           }
           .i.fa{
               margin: 32.5px 10px 0 20px;
+          }
+          #message_image{
+            display: none;
           }
         }
       }

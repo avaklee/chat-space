@@ -8,20 +8,27 @@
       .left_content__chat_groups
         .left_content__chat_groups__chat_group_name
         - current_user.groups.each do |group|
-          "#{group.name}"
-        .left_content__chat_groups__last_msg　まだメッセージはありません。
+          .left_content__chat_groups__chat_group_name
+            "#{group.name}"
+            .left_content__chat_groups__last_msg
+              - if group.messages.present?
+                = group.messages.last.body
+              -else
+                "まだメッセージはありません。"
+
     .right_content
       .right_content__top_content
         .right_content__top_content__chat_group_name_main Sample Group
-        .right_content__top_content__edit_button Edit
+        .right_content__top_content__edit_button EDIT
         .right_content__top_content__members Members: Klee Tech
       .right_content__middle_content
         .right_content__middle_content__message
-          .right_content__middle_content__message__user_name K Lee
-          .right_content__middle_content__message__date 2017/5/16
-          .right_content__middle_content__message__comment Hello, World!
-      .right_content__bottom_content
-        .right_content__bottom_content__sent_button Send
-        .i.fa.fa-picture-o{"aria-hidden" => "true"}
-        .right_content__bottom_content__text_bar
-        Please enter text
+        - if @messages.present?
+          - @messages.each do |msg|
+            .right_content__middle_content__message__user_name
+            = msg.user.name
+            .right_content__middle_content__message__date
+            = msg.created_at
+            .right_content__middle_content__message__comment
+            = msg.body
+

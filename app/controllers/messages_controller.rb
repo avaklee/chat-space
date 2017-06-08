@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-before_action :grouping
+before_action :find_group
 
   def index
     @message = Message.new
@@ -21,8 +21,7 @@ private
     params.require(:message).permit(:body, :image)
   end
 
-  def grouping
+  def find_group
     @group = Group.find(params[:group_id])
   end
-
 end

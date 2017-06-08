@@ -6,29 +6,18 @@
         .fa.fa-cog{"aria-hidden" => "true"}
         .fa.fa-pencil-square-o{"aria-hidden" => "true"}
       .left_content__chat_groups
-        .left_content__chat_groups__chat_group_name
         - current_user.groups.each do |group|
           .left_content__chat_groups__chat_group_name
-            "#{group.name}"
-            .left_content__chat_groups__last_msg
-              - if group.messages.present?
-                = group.messages.last.body
-              -else
-                "まだメッセージはありません。"
-
+            #{show_group_name(group)}
+          .left_content__chat_groups__last_msg
+            #{show_last_message(group)}
     .right_content
       .right_content__top_content
-        .right_content__top_content__chat_group_name_main Sample Group
+        .right_content__top_content__chat_group_name_main
+          = @group.name
         .right_content__top_content__edit_button EDIT
-        .right_content__top_content__members Members: Klee Tech
+        .right_content__top_content__members
+          - @group.users.each do |f|
+            "Members: #{f.name}"
       .right_content__middle_content
-        .right_content__middle_content__message
-        - if @messages.present?
-          - @messages.each do |msg|
-            .right_content__middle_content__message__user_name
-            = msg.user.name
-            .right_content__middle_content__message__date
-            = msg.created_at
-            .right_content__middle_content__message__comment
-            = msg.body
-
+        = render partial: "messages", locals: { messages: @messages }

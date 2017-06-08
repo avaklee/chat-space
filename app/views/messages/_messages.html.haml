@@ -1,0 +1,8 @@
+- messages.each do |msg|
+  .right_content__middle_content__message
+    .right_content__middle_content__message__user_name
+      = msg.user.name
+    .right_content__middle_content__message__date
+      = msg.created_at
+    .right_content__middle_content__message__comment
+      = msg.body

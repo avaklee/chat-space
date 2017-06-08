@@ -70,15 +70,14 @@
           background-color: $dark_gray;
           position: fixed;
 
-
-          #sent_button{
+          &__send_button{
             height: 50px;
             width: 80px;
             text-align: center;
             line-height: 50px;
             background-color: $sky_blue;
             float: right;
-            margin: 20px 40px 20px 15px;
+            margin: 20px 0px 20px 15px;
           }
           #message_body{
             height: 50px;
@@ -88,7 +87,7 @@
             color: $gray_black;
             background-color: $white;
             margin: 20px 10px;
-            float:left;
+            float: left;
           }
           .i.fa{
               margin: 32.5px 10px 0 20px;

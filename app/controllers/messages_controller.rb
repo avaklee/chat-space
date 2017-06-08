@@ -7,7 +7,7 @@ before_action :find_group
   end
 
   def create
-    @message = Message.create(body: message_params[:body], image:message_params[:image], group_id: params[:group_id], user_id: current_user.id)
+    @message = Message.new(message_params)
     if @message.save
       redirect_to group_messages_path
     else
@@ -18,7 +18,7 @@ before_action :find_group
 
 private
   def message_params
-    params.require(:message).permit(:body, :image)
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id], user_id: current_user.id)
   end
 
   def find_group

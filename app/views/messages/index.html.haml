@@ -20,11 +20,11 @@
           - @group.users.each do |f|
             "Members: #{f.name}"
       .right_content__middle_content
-        = render partial: "messages", locals: { messages: @messages }
+        = render @messages
       = form_for @message, url:group_messages_path do |f|
-        .right_content__bottom_content
-          = f.label :image do
-            .i.fa.fa-picture-o{"aria-hidden" => "true"}
-              = f.file_field :image
-          = f.text_field :body, placeholder: "メッセージを入力してください。"
-          = f.submit "SEND", id: "sent_button", data: { disable_with: "Save" }
+        .new_message
+        = f.label :image do
+          .i.fa.fa-picture-o{"aria-hidden" => "true"}
+            = f.file_field :image
+        = f.text_field :body, placeholder: "メッセージを入力してください。"
+        = f.submit "SEND", class: "new_message__send_button", data: { disable_with: "Save" }

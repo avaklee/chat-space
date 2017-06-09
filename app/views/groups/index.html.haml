@@ -8,7 +8,6 @@
       .left_content__chat_groups
         - current_user.groups.each do |group|
           .left_content__chat_groups__chat_group_name
-            #{show_group_name(group)}
+            = show_group_name(group)
           .left_content__chat_groups__last_msg
-            #{show_last_message(group)}
-
+            = show_last_message(group)

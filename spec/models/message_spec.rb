@@ -5,52 +5,34 @@ describe Message do
       message = build(:message, image: nil)
       expect(message).to be_valid
     end
-  end
-end
 
-describe Message do
-  describe '#create' do
     it "is valid with an image" do
-        message = create(:message, body: nil)
-        expect(message).to be_valid
+      message = create(:message, body: nil)
+      expect(message).to be_valid
     end
-  end
-end
 
-describe Message do
-  describe '#create' do
     it "is valid with both message/image" do
-        message = create(:message)
-        expect(message).to be_valid
+      message = create(:message)
+      expect(message).to be_valid
     end
-  end
-end
 
-describe Message do
-  describe '#create' do
     it "is invalid without neither message nor image" do
-        message = create(:message)
-        message.image = nil
-        message.body = nil
-        message.valid?
-        expect(message).to_not be_valid
+      message = create(:message)
+      message.image = nil
+      message.body = nil
+      message.valid?
+      expect(message).to_not be_valid
+      expect(message.errors[:body]).to include("を入力してください")
+      expect(message.errors[:image]).to include("を入力してください")
     end
-  end
-end
 
-describe Message do
-  describe '#create' do
     it "is invalid without a group_id" do
-        message = create(:message, group_id: nil)
-        expect(message).to be_valid
+      message = create(:message, group_id: nil)
+      expect(message).to be_valid
     end
-  end
-end
 
-describe Message do
-  describe '#create' do
     it "is invalid without a user_id" do
-        message = create(:message, user_id: nil)
+      message = create(:message, user_id: nil)
         expect(message).to be_valid
     end
   end

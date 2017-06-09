@@ -1,0 +1,30 @@
+.wrapper
+  .contents.clearfix
+    .left_content
+      .left_content__user_nav
+        .left_content__user_nav__user_name K Lee
+        .fa.fa-cog{"aria-hidden" => "true"}
+        .fa.fa-pencil-square-o{"aria-hidden" => "true"}
+      .left_content__chat_groups
+        - current_user.groups.each do |group|
+          .left_content__chat_groups__chat_group_name
+            = show_group_name(group)
+          .left_content__chat_groups__last_msg
+            = show_last_message(group)
+    .right_content
+      .right_content__top_content
+        .right_content__top_content__chat_group_name_main
+          = @group.name
+        .right_content__top_content__edit_button EDIT
+        .right_content__top_content__members
+          - @group.users.each do |f|
+            "Members: #{f.name}"
+      .right_content__middle_content
+        = render @messages
+      = form_for @message, url:group_messages_path do |f|
+        .new_message
+        = f.label :image do
+          .i.fa.fa-picture-o{"aria-hidden" => "true"}
+            = f.file_field :image
+        = f.text_field :body, placeholder: "メッセージを入力してください。"
+        = f.submit "SEND", class: "new_message__send_button", data: { disable_with: "Save" }

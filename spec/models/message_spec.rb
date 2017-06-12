@@ -17,12 +17,8 @@ describe Message do
     end
 
     it "is invalid without neither message nor image" do
-      message = create(:message)
-      message.image = nil
-      message.body = nil
+      message = build(:message, image: nil, body: nil)
       message.valid?
-      expect(message).to_not be_valid
-      expect(message.errors[:body]).to include("を入力してください")
       expect(message.errors[:image]).to include("を入力してください")
     end
 
@@ -33,7 +29,7 @@ describe Message do
 
     it "is invalid without a user_id" do
       message = create(:message, user_id: nil)
-        expect(message).to be_valid
+      expect(message).to be_valid
     end
   end
 end

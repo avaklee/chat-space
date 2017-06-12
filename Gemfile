@@ -31,6 +31,17 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry-rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'rspec-rails'
+gem 'factory_girl_rails', "~> 4.4.1"
+
+group :development do
+  gem 'web-console', '~> 2.0'
+end
+
+group :test do
+  gem 'faker'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

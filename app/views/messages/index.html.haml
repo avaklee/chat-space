@@ -20,7 +20,7 @@
           - @group.users.each do |f|
             "Members: #{f.name}"
       .right_content__middle_content
-        = render @messages
+        = render partial: "messages", locals: { messages: @messages }
       = form_for @message, url:group_messages_path do |f|
         .new_message
         = f.label :image do

@@ -12,8 +12,8 @@ RSpec.describe MessagesController, type: :controller do
       @group = user.groups.first
     end
     it "populates an array of messages, アクション内で定義しているインスタンス変数があるか" do
-      messages = create_list(:message,3, group_id: @group.id)
-      get :index, params: {group_id: @group.id}
+      messages = create_list(:message, 3, group_id: @group.id)
+      get :index, params: { group_id: @group.id }
       expect(assigns(:messages)).to match(messages)
     end
     it "renders the :index template" do
@@ -76,19 +76,3 @@ RSpec.describe MessagesController, type: :controller do
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

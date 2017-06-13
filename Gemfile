@@ -33,6 +33,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'rspec-rails'
 gem 'factory_girl_rails', "~> 4.4.1"
+gem 'rails-controller-testing'
 
 group :development do
   gem 'web-console', '~> 2.0'

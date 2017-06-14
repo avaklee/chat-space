@@ -10,6 +10,7 @@ $(function() {
       +'</div>'
       + '<div class="right_content__middle_content__message__comment">'
       + message.body
+      + message_image
       + '</div>'
     + '</div>'
     return html;
@@ -33,12 +34,11 @@ $(function() {
       $('.right_content__middle_content').append(html);
       $('#message_body').val('');
       $("html, body").animate({scrollTop : position}, {
-        queue : false
-      });
     });
-
-    .fail(function(data) {
-      alert(data)
-    });
+    .fail(function(jqXHR, textStatus, errorThrown) {
+      $("#XMLHttpRequest").html("XMLHttpRequest : " + jqXHR.status);
+      $("#textStatus").html("textStatus : " + textStatus);
+      $("#errorThrown").html("errorThrown : " + errorThrown);
+    })
   });
 });

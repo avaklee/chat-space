@@ -26,7 +26,8 @@ $(function(){
         var html = buildHTML(user);
         $('.chat-group-form__search.clearfix').append(html);
       })
-    }).fail(function(jqXHR, textStatus, errorThrown) {
+    })
+    .fail(function(jqXHR, textStatus, errorThrown) {
       $("#XMLHttpRequest").html("XMLHttpRequest : " + jqXHR.status);
       $("#textStatus").html("textStatus : " + textStatus);
       $("#errorThrown").html("errorThrown : " + errorThrown);

@@ -34,11 +34,11 @@ $(function() {
       $('.right_content__middle_content').append(html);
       $('#message_body').val('');
       $("html, body").animate({scrollTop : position}, {
-    });
-    .fail(function(jqXHR, textStatus, errorThrown) {
+    }).fail(function(jqXHR, textStatus, errorThrown) {
       $("#XMLHttpRequest").html("XMLHttpRequest : " + jqXHR.status);
       $("#textStatus").html("textStatus : " + textStatus);
       $("#errorThrown").html("errorThrown : " + errorThrown);
     })
   });
 });
+})

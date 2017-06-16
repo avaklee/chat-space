@@ -6,5 +6,5 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :group_users
   has_many :messages
-  scope :chosen, -> { where('name LIKE(?)', "#{params[:keyword]}%") }
+  scope :chosen, -> (keyword){ where('name LIKE(?)', "#{keyword}%" ) }
 end

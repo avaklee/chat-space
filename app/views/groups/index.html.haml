@@ -6,8 +6,4 @@
         .fa.fa-cog{"aria-hidden" => "true"}
         .fa.fa-pencil-square-o{"aria-hidden" => "true"}
       .left_content__chat_groups
-        - @groups.each do |group|
-          .left_content__chat_groups__chat_group_name
-            = show_group_name(group)
-          .left_content__chat_groups__last_msg
-            = show_last_message(group)
+        = render partial: "groups", locals: { groups: @groups }

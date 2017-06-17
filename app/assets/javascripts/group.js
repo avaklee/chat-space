@@ -1,5 +1,5 @@
 $(function(){
-  function buildHTML(user){
+  function buildAddUserHTML(user){
     var html =
     '<div class="chat-group-user clearfix">'
       + '<p class="chat-group-user__name">'
@@ -27,7 +27,7 @@ $(function(){
 
     .done(function(data) {
       data.forEach(function(user){
-        var html = buildHTML(user);
+        var html = buildAddUserHTML(user);
         $('.chat-group-form__search.clearfix').append(html);
       })
     })
@@ -39,7 +39,7 @@ $(function(){
     })
   })
 
-  function buildHTML2(user){
+  function buildAddedUsersHTML(user){
     var html =
     '<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-8">'
       + '<input name="group[user_ids][]" type="hidden" value="'
@@ -56,7 +56,7 @@ $(function(){
 
   $('.chat-group-form__search').on('click', '.chat-group-user__btn--add', function() {
     var addBtn = $(this);
-    var html = buildHTML2(addBtn);
+    var html = buildAddedUsersHTML(addBtn);
     $('.chat-group-form__search.clearfix').append(html);
     $(addBtn).parent().remove();
    });

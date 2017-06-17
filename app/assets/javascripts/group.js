@@ -32,14 +32,15 @@ $(function(){
       })
     })
     .fail(function(jqXHR, textStatus, errorThrown) {
+
       $("#XMLHttpRequest").html("XMLHttpRequest : " + jqXHR.status);
-      $("#textStatus").html("textStatus : " + textStatus);
+      $("#textStatus").text("ユーザーの検索に失敗しました");
       $("#errorThrown").html("errorThrown : " + errorThrown);
     })
   })
 
   function buildHTML2(user){
-    var html2 =
+    var html =
     '<div class="chat-group-user clearfix js-chat-member" id="chat-group-user-8">'
       + '<input name="group[user_ids][]" type="hidden" value="'
         + user.data('userId')
@@ -50,18 +51,17 @@ $(function(){
         + '削除'
       +'</a>'
     +'</div>'
-    return html2;
+    return html;
   };
 
   $('.chat-group-form__search').on('click', '.chat-group-user__btn--add', function() {
-    var user = $(this);
-    var html2 = buildHTML2(user);
-    $('.chat-group-form__search.clearfix').append(html2);
-    $(this).parent().remove();
+    var addBtn = $(this);
+    var html = buildHTML2(addBtn);
+    $('.chat-group-form__search.clearfix').append(html);
+    $(addBtn).parent().remove();
    });
 
   $('.chat-group-form__search').on('click', '.js-remove-btn', function() {
-    console.log("test");
     $(this).parent().remove();
   });
 });

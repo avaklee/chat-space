@@ -1,4 +1,4 @@
 .left_content__chat_groups__chat_group_name
-  = show_group_name(group)
+= link_to "#{show_group_name(group)}", group_messages_path(group)
 .left_content__chat_groups__last_msg
-  = show_last_message(group)
+= show_last_message(group)

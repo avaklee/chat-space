@@ -4,6 +4,10 @@ before_action :find_group
   def index
     @message = Message.new
     @messages = Group.find(params[:group_id]).messages
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def create

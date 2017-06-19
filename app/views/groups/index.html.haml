@@ -2,8 +2,11 @@
   .contents.clearfix
     .left_content
       .left_content__user_nav
-        .left_content__user_nav__user_name K Lee
-        .fa.fa-cog{"aria-hidden" => "true"}
-        .fa.fa-pencil-square-o{"aria-hidden" => "true"}
+        .left_content__user_nav__user_name 
+          =current_user.name
+        = link_to edit_user_path(current_user.id) do
+          %i.fa.fa-cog{"aria-hidden" => "true"}
+        = link_to new_group_path do
+          %i.fa.fa-pencil-square-o{"aria-hidden" => "true"}
       .left_content__chat_groups
         = render partial: "group", collection: @groups

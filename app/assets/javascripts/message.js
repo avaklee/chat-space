@@ -1,5 +1,4 @@
 $(function(){
-  // $(function msg(){
     function buildHTML(message) {
     var html =
     '<div class="right_content__middle_content__message">'
@@ -13,11 +12,9 @@ $(function(){
       + message.body
       + '</div>'
       if (message.image.url ==! ""){
-      document.write(
-      + '<img src= "'
+      + '<img src= " '
       + message.image.url
-      +'">'
-      )};
+      + ' ">'  }
     + '</div>'
     return html;
   }
